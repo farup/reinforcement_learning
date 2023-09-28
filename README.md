@@ -41,11 +41,24 @@ One tweak, the state value must be the maximium over optimal action values.
  **Policy Evaluation**
 - States are randomly initialized
 - These states are reffered to as V(s) because it estimates the true value.
-- Reassing each state value according to the bellman equation
+- Reassigning  each state value according to the bellman equation
   
 $$V(s) = \sum_{a \in{A(s)}} \pi(a|s) \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma v_\pi(s')]$$
 
+Intuion is that each assingment imports some small piece of the known MDP, making the value estimates a little better. For action value, process is similar excepet that states, are replaced by state action pairs.  
+
 Meaning that state S wil be determined by states reachable from state S with actions A. Continue reassigning each state. One pass over all states is called a sweep. 
+
+**Generalized Policy Iteration (GPI)**
+
+Referes to entire class of algorithms. 
+
+- Policy Iteration: To find $\pi*$ and $v_*$
+  $$\pi_0 -E-> V_{\pi_0} -I-> \pi_1 -E-> v_{\pi_1}$$
+
+Start with arbitrary initiliazed policy $\pi_0$, then apply policy evaulation which we determine it's value function. Then create a slightly better ploicy $\pi_1$. Now our value function no longer applies, then apply evaluation again to get a new function. Continues to no changing, arrived at optimal policy. 
+
+**Value iteration** 
 
 
 
