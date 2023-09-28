@@ -60,7 +60,7 @@ Start with arbitrary initiliazed policy $\pi_0$, then apply policy evaulation wh
 
 **Value iteration** 
 
-
+In Policy Iteration, at each step, policy evaluation is run until convergence, then the policy is updated and the process repeats. In contrast, Value Iteration only does a single iteration of policy evaluation at each step. Then, for each state, it takes the maximum action value to be the estimated state value.
 
 
 ---
