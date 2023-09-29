@@ -12,6 +12,8 @@ In the very early beggining of RL most of the applications was Q-Tables. For eac
 
 In Deep Q Learning, the agent uses the observations resulting from the selected action based on the Q-network to calculate a target Q-value for the current state-action pair. 
 
+The Q-network predicts the quality or expected cumulative future rewards of taking a specific action in a given state. It estimates the Q-value, which stands for "quality" or "action-value," and represents the expected return (sum of rewards) an agent can achieve by taking a particular action from a particular state and then following a specific policy (action-selection strategy) thereafter.
+
 
 ### Policy 
 Policy is the mapping or function that tell us the action to take given a state. This is the function we want to learn. The optimal policy, that maximizes expected return when the agent acts according to it. Two approaches; 
