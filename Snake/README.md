@@ -8,10 +8,21 @@ Reinforcement Learning (or RL) is a branch of Machine Learning where an agent le
 
 In the very early beggining of RL most of the applications was Q-Tables. For each action at each state a maximum expected future reward was calculated. Based on this information, agent could choose the action with highest reward. But as the enviorments grows large, the amount of state-action pairs becomes infeasible to store in memmory. 
 
+### Deep Q Learning
+With Deep Q Learning, we use the Q-Network to estimate the current values of state and action, and these. Agent then selects and action, based on the Q-values estimated by the Q-network for the current state. Then calculates a target Q-value for the current state-action pair, usually with applying the Bellman equation.  
+
+
+
+
+
 
 ### Policy 
 Policy is the mapping or function that tell us the action to take given a state. This is the function we want to learn. The optimal policy, that maximizes expected return when the agent acts according to it. Two approaches; 
 - Policy-Based Methods: Teach the agent to learn which action to take, given the current state
 - Value-Based Methods: Teach the agent to learn which state is more valuable, the take actions accordingly.
 
-### Deep Q Learning
+
+
+
+
+
