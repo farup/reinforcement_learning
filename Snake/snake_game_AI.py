@@ -8,7 +8,6 @@ pygame.init()
 font = pygame.font.Font('arial.ttf', 25)
 # font = pygame.font.SysFont('arial', 25)
 
-
 # reset function (after each game agent should be able to reset for new game)
 
 # reward
@@ -17,6 +16,7 @@ font = pygame.font.Font('arial.ttf', 25)
 
 # game_iteration
 # is_collision
+
 
 class Direction(Enum):
     RIGHT = 1
@@ -39,7 +39,6 @@ SPEED = 20
 
 
 class SnakeGameAI:
-
     def __init__(self, w=640, h=480):
         self.w = w
         self.h = h
@@ -107,22 +106,18 @@ class SnakeGameAI:
         return reward, game_over, self.score
 
     def is_collision(self, pt=None):
-
         if pt is None:
-
             pt = self.head
         # hits boundary
-        if self.pt.x > self.w - BLOCK_SIZE or self.pt.x < 0 or self.pt.y > self.h - BLOCK_SIZE or self.pt.y < 0:
+        if pt.x > self.w - BLOCK_SIZE or pt.x < 0 or pt.y > self.h - BLOCK_SIZE or pt.y < 0:
             return True
         # hits itself
         if self.head in self.snake[1:]:
             return True
-
         return False
 
     def _update_ui(self):
         self.display.fill(BLACK)
-
         for pt in self.snake:
             pygame.draw.rect(self.display, BLUE1, pygame.Rect(
                 pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE))
@@ -147,9 +142,7 @@ class SnakeGameAI:
         If we go down and do a right turn, we go left etc.. 
 
         based on action want to determine next move
-
         """
-
         clock_wise = [Direction.RIGHT, Direction.DOWN,
                       Direction.LEFT, Direction.UP]  # Keeps track of next directions.
         idx = clock_wise.index(self.direction)
