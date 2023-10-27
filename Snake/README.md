@@ -2,6 +2,8 @@
 
 Project with insipiration from [Patrick Loeber](https://www.youtube.com/watch?v=L8ypSXwyBds&t=4261s&ab_channel=freeCodeCamp.org)
 
+Run game 
+
 ### Introduction 
 
 Reinforcement Learning (or RL) is a branch of Machine Learning where an agent learns to maximize the reward by interacting with the environment and understanding the consequences of good and bad actions. Goal is to find a sequence of actions that will maximize the return: the sum of rewards. 
@@ -13,6 +15,39 @@ In the very early beggining of RL most of the applications was Q-Tables. For eac
 In Deep Q Learning, the agent uses the observations resulting from the selected action based on the Q-network to calculate a target Q-value for the current state-action pair. 
 
 The Q-network predicts the quality or expected cumulative future rewards of taking a specific action in a given state. It estimates the Q-value, which stands for "quality" or "action-value," and represents the expected return (sum of rewards) an agent can achieve by taking a particular action from a particular state and then following a specific policy (action-selection strategy) thereafter.
+
+To optimize the network we need a loss function. In this case we are using the Bellman Equation. By using the network to predict the Q-value from the old state, and the bellman equation to calculate the Q-value (with the model, but discounted) from the new state, we can compute the loss  
+
+$$
+Q = model(state0)
+Q_{new} = R + \gamma * max(Q(state_1))
+
+Loss = (Q_{new} - Q)^2 
+$$
+
+### Overview 
+
+Brief overview of the building blocks of the model. 
+
+The **Agent** puts everything togheter. Store both game and the model. Implements the training loop. Recive state from the game, call get_move(state) to get an action, involves using the model to predict. Perform the action and revice an new state. Train model. **Game(PyGame)** Implements a step fucntion. **Model(PyTorch)** Linear model with a predict option. 
+
+Action: <br>
+[1,0,0] -> Straigth <br>
+[0,1,0] -> right turn <br>
+[0,0,1] -> left turn <br>
+
+Action depends on the current direction. 
+
+State: (11 values) <br>
+[danger straigth, danger right, danger left,  <br>
+direction left, direction right, direction up direction down, <br>
+food left, food right, food up, food down ]
+All boolean values. 
+
+Model: input state, Outputs three probabilites for each action. 
+
+
+
 
 ### Snake 
 
