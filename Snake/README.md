@@ -31,6 +31,8 @@ Brief overview of the building blocks of the model.
 
 The **Agent** puts everything togheter. Store both game and the model. Implements the training loop. Recive state from the game, call get_move(state) to get an action, involves using the model to predict. Perform the action and revice an new state. Train model. **Game(PyGame)** Implements a step fucntion. **Model(PyTorch)** Linear model with a predict option. 
 
+About the game: \n
+
 Action: <br>
 [1,0,0] -> Straigth <br>
 [0,1,0] -> right turn <br>
@@ -72,9 +74,25 @@ class Agent:
             move = torch.argmax(prediction).item()
             final_move[move] = 1
         return final_move
-````
-Get action either picks a random action (exploration) or by policy. 
+```
+Get action either picks a random action (exploration) or by policy (model). 
+Agent.py module also contains a train function
 
+```
+def train()
+...
+    while True:
+        # get old state
+        state_old = agent.get_state(game)
+
+        # get move
+        action = agent.get_action(state_old)
+
+        # perform move and get new state
+        reward, done, score = game.play_step(action)
+        state_new = agent.get_state(game)
+```
+The train function gets the state of the game before and after taking an action (either from exploration or explotatio). Uses this new state train the short memory (one step). We the proceed to store the same variables used for training the short memory (state_old, action, reward, state_new, done). If the episode is done, the long memory (replay memory) is trained. This trains the agent on all the previous moves and games played.  
 
 
 **Model**
