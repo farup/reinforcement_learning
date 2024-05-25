@@ -14,15 +14,21 @@ Dynamics of the problem is given by p(s',r|s,a), provides the probailiity of nex
 **The Bellman Equations**
 
 For any policy $\pi$, all $s \in S$ and all $a \in A(s)$: 
-$$v_\pi (s) = \sum_{a \in{A(s)}} \pi(a|s)q_\pi(s,a)$$ (1)
-$$q_\pi (s,a) = \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma v_\pi(s')]$$ (2)
+ 
+$$
+v_\pi (s) = \sum_{a \in{A(s)}} \pi(a|s)q_\pi(s,a)
+$$ 
+(1)
+$$
+q_\pi (s,a) = \sum_{a \in{A(s)} r \in R} (s',r|s,a)[r + \gamma v_{\pi (s')}]
+$$ (2)
 
 
 (1) the value of the state, when following the policy is equal to the policy weighted average of the action values. If we had 100 states, would needed 100 equations. (2) The action value of a state action pair is the probability weigthed average of the reward you'll get in the next step, and the discounted value of the next state.
 
 Bellman equation for $v_\pi$ (state value function) is given by substion equation 2 into 1. 
 
-$$v_\pi (s) = \sum_{a \in{A(s)}} \pi(a|s) \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma v_\pi(s')]$$
+$$ v_\pi (s) = \sum_{a \in{A(s)}} \pi(a|s) \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma v_\pi(s')] $$
 
 Bellman equation for $q_\pi$ (action value function) is given by substion equation 1 into 2.
 
