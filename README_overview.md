@@ -27,8 +27,7 @@ The goal of the agent is to learn the **optimal** policy, maximixing the expecte
 # Two main types of RL 
 
 ## Value based methods
-
-![image info](./figures/valuefunctions.png)
+<img src="./figures/valuefunctions.png" width="400">
 
 Estimate either state or the state action value. In state-action, given value for each action we can take in that state. 
 
@@ -41,7 +40,7 @@ With the value functions we're indirectly learning a policy. Example policy, gre
 
 ## Policy based methods
 
-![image info](./figures/policybasedmethods.png)
+<img src="./figures/policybasedmethods.png" width="400">
 
 - State -> policy(state) -> Action
 - Determnistic policy: one action
