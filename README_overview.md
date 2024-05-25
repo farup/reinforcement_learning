@@ -49,7 +49,7 @@ With the value functions we're indirectly learning a policy. Example policy, gre
 
 # Q-learning and DQN 
 
-Two value fucntions
+Two value functions
 
 ## Q-learning 
 - The Bellman Equation: used to update state, given the neighbouring states.
@@ -84,10 +84,24 @@ $$
 \pi_\theta (s) = P[A|s;\theta]
 $$
 
-We have our stocastic policy, and need to evaulate the trajectories we sample for our policy. This is introudced by the objective function which is the expected return of the cumulative return. 
+We have our stocastic policy, and need to evaulate the trajectories we sample from our policy. Done by introducing the objective function which is the expected return of the cumulative return. 
 
 Objective Fucntion
+
 $$
 J(\theta) = E_{\tau ~\pi [R(\tau)]}
 $$
 
+## Policy Gradient Theorem 
+
+$$
+J(\theta) = \sum_t P(\tau | \pi_\theta ) R(\tau) = E[R(\tau)]
+$$
+
+The expected return is the average, or weighted return of our trajectories. When we want to maximize the return, we need the gradient, points us in the steepest acend. The policy gradient theorem tells us this can by done like this: 
+
+$$
+\nabla J(\theta) = E [\sum_{t=0}^T \nabla_{\theta} log \pi_{\theta} (a_t | s_t) R(t)]
+$$
+
+Can be done by taking the gradient of the log probabilities multiplied with expected return. 
