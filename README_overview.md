@@ -44,7 +44,7 @@ With the value functions we're indirectly learning a policy. Example policy, gre
 
 - State -> policy(state) -> Action
 - Determnistic policy: one action
-- Stochastic polic: porbability distribution
+- Stochastic polic: probability distribution
 
 
 # Q-learning and DQN 

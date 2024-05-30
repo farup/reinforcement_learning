@@ -19,9 +19,14 @@ The Q-network predicts the quality or expected cumulative future rewards of taki
 To optimize the network we need a loss function. In this case we are using the Bellman Equation. By using the network to predict the Q-value from the old state, and the bellman equation to calculate the Q-value (with the model, but discounted) from the new state, we can compute the loss  
 
 $$
-Q = model(state0)
-Q_{new} = R + \gamma * max(Q(state_1))
+Q = model(state_0)
+$$
 
+$$
+Q_{new} = R + \gamma * max(Q(state_1))
+$$
+
+$$
 Loss = (Q_{new} - Q)^2 
 $$
 
