@@ -27,11 +27,15 @@ $$
 
 Bellman equation for $v_\pi$ (state value function) is given by substion equation 2 into 1. 
 
-$$ v_\pi (s) = \sum_{a \in{A(s)}} \pi(a|s) \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma v_\pi(s')] $$
+$$
+v_\pi (s) = \sum_{a \in{A(s)}} \pi(a|s) \sum_{a \in {A(s)} r \in R} p(s',r|s,a)[r + \gamma v_\pi(s')]
+$$
 
 Bellman equation for $q_\pi$ (action value function) is given by substion equation 1 into 2.
 
-$$q_\pi (s,a) = \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma \sum_{a' \in{A(s')}} \pi(a'|s')q_\pi(s',a')]$$
+$$
+q_\pi (s,a) = \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma \sum_{a' \in{A(s')}} \pi(a'|s')q_\pi(s',a')]
+$$
 
 
 **Bellman Optimality Equations**
@@ -40,11 +44,15 @@ For any policy $\pi$, all $s \in S$ and all $a \in A(s)$:
 
 $$
 v_\pi (s) = max_{a \in A(s)} q_{*} (s,a)
-$$ (1)
+$$
+
+(1)
 
 $$
-q_{*} (s,a) = \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma v_{*}(s')]
-$$ (2)
+q_{*} (s,a) = \sum_{a \in{A(s)} r \in R} p(s',r|s,a)[r + \gamma v_{\*}(s')]
+$$
+
+(2)
 
 One tweak, the state value must be the maximium over optimal action values. 
 
